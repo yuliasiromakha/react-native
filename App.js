@@ -13,8 +13,8 @@ import {
   Image,
   Platform,
 } from "react-native";
-import * as Font from "expo-font";
-import AppLoading from 'expo-app-loading';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
 
 const initialState = {
   username: '',
@@ -24,7 +24,7 @@ const initialState = {
 
 const loadApplication = async () => {
   await Font.loadAsync({
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
+    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
   })
 }
 
@@ -47,11 +47,14 @@ export default function App() {
     setIsKeyboardShown(false);
   };
 
-  if(!isReady) {
-    return <AppLoading 
-     startAsync={loadApplication}
-     onFinish={() => setIsReady(true)} 
-     onError={console.warn} />
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={loadApplication}
+        onFinish={() => setIsReady(true)}
+        onError={console.warn}
+      />
+    );
   }
 
   return (
