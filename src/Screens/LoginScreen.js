@@ -21,13 +21,14 @@ const initialState = {
   password: '',
 } 
 
-const loadApplication = async () => {
-  await Font.loadAsync({
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
-  })
-}
+// const loadApplication = async () => {
+//   await Font.loadAsync({
+//     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
+//   })
+// }
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
+  console.log('navigation:', navigation);
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardShown, setIsKeyboardShown] = useState(false);
   const [state, setState] = useState(initialState);
@@ -56,7 +57,7 @@ const LoginScreen = () => {
     <TouchableWithoutFeedback onPress={handleDismissKeyboard}>
       <View style={styles.container}>
         <ImageBackground
-          source={require("./images/mainBackground.png")}
+          source={require("../images/mainBackground.png")}
           style={styles.image}
         >
           <KeyboardAvoidingView
@@ -101,7 +102,7 @@ const LoginScreen = () => {
                   <Text style={styles.btnText}>Увійти</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.rerouteBtn}>
+                <TouchableOpacity style={styles.rerouteBtn} onPress={() => navigation.navigate('Registration')}>
                   <Text style={styles.rerouteText}>
                     Немає акаунту?
                     <Text style={styles.rerouteLoginText}>Зареєструватись</Text>

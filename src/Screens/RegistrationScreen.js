@@ -1,4 +1,3 @@
-// cd second-react-native-hw
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -22,13 +21,13 @@ const initialState = {
   password: '',
 } 
 
-const loadApplication = async () => {
-  await Font.loadAsync({
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
-  })
-}
+// const loadApplication = async () => {
+//   await Font.loadAsync({
+//     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
+//   })
+// }
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardShown, setIsKeyboardShown] = useState(false);
   const [state, setState] = useState(initialState);
@@ -58,7 +57,7 @@ const RegistrationScreen = () => {
     <TouchableWithoutFeedback onPress={handleDismissKeyboard}>
       <View style={styles.container}>
         <ImageBackground
-          source={require("./images/mainBackground.png")}
+          source={require("../images/mainBackground.png")}
           style={styles.image}
         >
           <KeyboardAvoidingView
@@ -69,7 +68,7 @@ const RegistrationScreen = () => {
               <View style={styles.addPhoto}>
                 <Image
                   style={styles.addPhotoIcon}
-                  source={require("./images/add.png")}
+                  source={require("../images/add.png")}
                 />
               </View>
               <View style={styles.formSection}>
@@ -121,7 +120,7 @@ const RegistrationScreen = () => {
                 <TouchableOpacity style={styles.registrationButton} onPress={onRegister}>
                   <Text style={styles.btnText}>Зареєструватися</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.rerouteBtn}>
+                <TouchableOpacity style={styles.rerouteBtn} onPress={() => navigation.navigate('Login')}>
                   <Text style={styles.rerouteText}>
                     Вже є акаунт? Увійти
                   </Text>
