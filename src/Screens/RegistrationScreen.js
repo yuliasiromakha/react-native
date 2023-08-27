@@ -12,20 +12,14 @@ import {
   Image,
   Platform,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from 'expo-app-loading';
+import { loadApplication } from "../FontLoader";
 
 const initialState = {
   username: '',
   email: '',
   password: '',
 } 
-
-// const loadApplication = async () => {
-//   await Font.loadAsync({
-//     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
-//   })
-// }
 
 const RegistrationScreen = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);

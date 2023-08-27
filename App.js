@@ -5,12 +5,7 @@ import LoginScreen from './src/Screens/LoginScreen';
 import RegistrationScreen from './src/Screens/RegistrationScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const loadApplication = async () => {
-  await Font.loadAsync({
-    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
-  })
-}
+import { loadApplication } from "./src/FontLoader";
 
 const AuthStack = createNativeStackNavigator();
 

@@ -1,4 +1,3 @@
-// cd second-react-native-hw
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -13,19 +12,13 @@ import {
   Image,
   Platform,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from 'expo-app-loading';
+import { loadApplication } from "../FontLoader";
 
 const initialState = {
   email: '',
   password: '',
 } 
-
-// const loadApplication = async () => {
-//   await Font.loadAsync({
-//     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf')
-//   })
-// }
 
 const LoginScreen = ({navigation}) => {
   console.log('navigation:', navigation);
@@ -144,8 +137,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 45,
     flex: 1,
     height: 200,
-    // width: 430,
-    // marginTop: 380,
     top: 380,
     width: "100%",
     paddingRight: 20,
