@@ -13,7 +13,7 @@ import {
   Platform,
 } from "react-native";
 import AppLoading from 'expo-app-loading';
-import { loadApplication } from "../FontLoader";
+import { loadApplication } from "../../FontLoader";
 
 const initialState = {
   username: '',
