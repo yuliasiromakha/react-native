@@ -39,18 +39,15 @@ const LoginScreen = ({navigation}) => {
     password: ${state.password}`);
   };
 
-  if(!isReady) {
-    return <AppLoading 
-     startAsync={loadApplication}
-     onFinish={() => setIsReady(true)} 
-     onError={console.warn} />
-  }
+  // if(!isReady) {
+  //   return null
+  // }
 
   return (
     <TouchableWithoutFeedback onPress={handleDismissKeyboard}>
       <View style={styles.container}>
         <ImageBackground
-          source={require("../images/mainBackground.png")}
+          source={require("../../images/mainBackground.png")}
           style={styles.image}
         >
           <KeyboardAvoidingView

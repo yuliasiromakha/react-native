@@ -12,8 +12,6 @@ import {
   Image,
   Platform,
 } from "react-native";
-import AppLoading from 'expo-app-loading';
-import { loadApplication } from "../../FontLoader";
 
 const initialState = {
   username: '',
@@ -25,7 +23,6 @@ const RegistrationScreen = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isKeyboardShown, setIsKeyboardShown] = useState(false);
   const [state, setState] = useState(initialState);
-  const [isReady, setIsReady] = useState(false);
   
   const onRegister = () => {
     setState(initialState);
@@ -40,18 +37,11 @@ const RegistrationScreen = ({navigation}) => {
     setIsKeyboardShown(false);
   };
 
-  if(!isReady) {
-    return <AppLoading 
-     startAsync={loadApplication}
-     onFinish={() => setIsReady(true)} 
-     onError={console.warn} />
-  }
-
   return (
     <TouchableWithoutFeedback onPress={handleDismissKeyboard}>
       <View style={styles.container}>
         <ImageBackground
-          source={require("../images/mainBackground.png")}
+          source={require("../../images/mainBackground.png")}
           style={styles.image}
         >
           <KeyboardAvoidingView
@@ -62,7 +52,7 @@ const RegistrationScreen = ({navigation}) => {
               <View style={styles.addPhoto}>
                 <Image
                   style={styles.addPhotoIcon}
-                  source={require("../images/add.png")}
+                  source={require("../../images/add.png")}
                 />
               </View>
               <View style={styles.formSection}>
@@ -128,7 +118,6 @@ const RegistrationScreen = ({navigation}) => {
   );
 }
 
-
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -146,7 +135,6 @@ const RegistrationScreen = ({navigation}) => {
       textAlign: "center",
       marginBottom: 0,
       bottom: 20,
-      fontFamily: 'Roboto-Medium',
       fontWeight: 500,
     },
   
@@ -157,7 +145,7 @@ const RegistrationScreen = ({navigation}) => {
       borderTopRightRadius: 45,
       flex: 1,
       height: 200,
-      width: "100%",
+      width: 450,
       paddingRight: 20,
       paddingLeft: 20,
     },
